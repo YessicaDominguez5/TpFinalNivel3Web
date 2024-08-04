@@ -1,0 +1,21 @@
+﻿.links {
+    color: white;
+}
+
+.imgRedonda {
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    /*margin: 25px 25px; */ /*separación de los bordes*/
+    padding: 20px;
+    text-align: center;
+}
+.buttonHeaders {
+    cursor: pointer;
+    text-align: right;
+    padding: 25px 25px;
+}
+.titulo {
+    color: burlywood;
+    font-size: 24px;
+}
