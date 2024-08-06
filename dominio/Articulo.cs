@@ -26,6 +26,6 @@ namespace dominio
 
         public decimal PrecioArticulo { get; set; }
 
-        public bool Activo { get; set; }
+        //public bool Activo { get; set; }
     }
 }

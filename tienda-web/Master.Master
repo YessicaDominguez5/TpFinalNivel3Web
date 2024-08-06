@@ -16,41 +16,47 @@
 <body style="background-color: indianred">
     <form id="form1" runat="server">
 
-    <header>
-        <div class="buttonHeaders" >
-            <asp:Button ID="btnLogin" runat="server" style="margin-right: 15px; border-radius:5px" CssClass="btn btn-outline-dark btn-sm" Text="Iniciar sessión" />
-            <asp:Button ID="btnRegistrarse" runat="server" style="margin-right: 15px; border-radius:5px" CssClass="btn btn-outline-dark btn-sm" Text="Crear cuenta" />
-        </div>
+        <header>
+            <div class="buttonHeaders">
+                <asp:Button ID="btnLogin" runat="server" Style="margin-right: 15px; border-radius: 5px" CssClass="btn btn-outline-dark btn-sm" Text="Iniciar sesión" />
+                <asp:Button ID="btnRegistrarse" runat="server" Style="margin-right: 15px; border-radius: 5px" CssClass="btn btn-outline-dark btn-sm" Text="Crear cuenta" />
+            </div>
 
-        <div style="text-align: center;">
+            <div style="text-align: center;">
 
-            <img src="./Imagenes/logotipo.jpg" class="imgRedonda" alt="logo" />
-          
-            <h2 class="titulo">Catálogo Online</h2>
+                <img src="./Imagenes/logotipo.jpg" class="imgRedonda" alt="logo" />
 
-        </div>
-        <p class="placeholder-wave">
-            <span class="placeholder col-12"></span>
-        </p>
+                <h2 class="titulo">Catálogo Online</h2>
+
+            </div>
+
+            <div>
+                <p class="placeholder-wave">
+                    <span class="placeholder col-12"></span>
+                </p>
+            </div>
 
 
-        <div>
-            <ul class="nav justify-content-center">
-                <li class="nav-item" >
-                    <a class="nav-link links active" aria-current="Default.aspx" href="Default.aspx">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link links" href="#">Mi Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link links" href="#">Favoritos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link links" href="#">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </header>
+            <div>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link links active" aria-current="Default.aspx" href="Default.aspx">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="#">Mi Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="#">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link links" href="ListaDeArticulos.aspx">Listado de Artículos</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
 
 
 
@@ -59,7 +65,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-       
+
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

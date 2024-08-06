@@ -11,13 +11,13 @@
             <div class="col">
 
 
-            <asp:GridView ID="dgvArticulos" AutoGenerateColumns="false" DataKeyNames="Id" CssClass="table table-bordered border-primary text-center table-dark" runat="server">
+            <asp:GridView ID="dgvArticulos" AutoGenerateColumns="false" DataKeyNames="Id" CssClass="table table-bordered border-primary text-center table-dark" AllowPaging="true" PageSize="5" OnPageIndexChanging="dgvArticulos_PageIndexChanging" runat="server">
                 <Columns>
                     <asp:BoundField HeaderText="Código" DataField="CodigoArticulo" />
                     <asp:BoundField HeaderText="Artículo" DataField="NombreArticulo" />
                     <asp:BoundField HeaderText="Marca" DataField="MarcaArticulo" />
                     <asp:BoundField HeaderText="Categoría" DataField="CategoriaArticulo" />
-                    <asp:CheckBoxField HeaderText="Activo" DataField="Activo"/>
+                    <%--<asp:CheckBoxField HeaderText="Activo" DataField="Activo"/>--%>
                     <asp:CommandField ShowSelectButton="true" SelectText="✏️" HeaderText="Editar" />
 
                 </Columns>
@@ -27,6 +27,8 @@
             </div>
         <div class="col-2"></div>
     </div>
+
+    <a href="FormArticulo.aspx" class="btn btn-primary">AGREGAR ARTÍCULO</a>
     
 
 

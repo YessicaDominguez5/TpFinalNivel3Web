@@ -87,6 +87,24 @@ namespace tienda_web
         protected global::System.Web.UI.WebControls.TextBox txtDescripcionArticulo;
 
         /// <summary>
+        /// labelUrlImagenArticulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelUrlImagenArticulo;
+
+        /// <summary>
+        /// txtUrlImagenArticulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUrlImagenArticulo;
+
+        /// <summary>
         /// labelPrecioArticulo control.
         /// </summary>
         /// <remarks>
@@ -105,22 +123,13 @@ namespace tienda_web
         protected global::System.Web.UI.WebControls.TextBox txtPrecioArticulo;
 
         /// <summary>
-        /// ckbActivoArticulo control.
+        /// btnAceptarFormulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ckbActivoArticulo;
-
-        /// <summary>
-        /// labelActivoArticulo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelActivoArticulo;
+        protected global::System.Web.UI.WebControls.Button btnAceptarFormulario;
 
         /// <summary>
         /// labelMarcaArticulo control.
@@ -157,5 +166,14 @@ namespace tienda_web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCategoriaArticulo;
+
+        /// <summary>
+        /// imgArticulo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgArticulo;
     }
 }
