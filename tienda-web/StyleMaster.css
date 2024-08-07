@@ -39,6 +39,18 @@
 
 }
 
+.imgCard {
+    height: 400px;
+    width: 300px;
+ 
+}
+
+.rowDefault{
+
+    margin-top: 5%;
+
+}
+
 .imgSelects {
     display: flex;
     flex-direction: column;
@@ -56,5 +68,13 @@
     margin-right: 5%;
     margin-bottom: 5%;
 }
+.carrousel {
+    height: 400px;
+    width: 400px;
+    margin-top: 5%;
+    margin-left:5%;
+}
+
+
 
 

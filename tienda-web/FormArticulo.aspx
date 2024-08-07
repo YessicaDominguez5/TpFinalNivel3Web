@@ -38,6 +38,7 @@
 
                 </ContentTemplate>
             </asp:UpdatePanel>
+
             <div class="mb-3">
                 <asp:Label ID="labelPrecioArticulo" runat="server" Text="PRECIO" CssClass="labels"></asp:Label>
                 <asp:TextBox ID="txtPrecioArticulo" CssClass="form-control" runat="server"></asp:TextBox>
@@ -65,9 +66,9 @@
                   }%>
             </div>
 
-        </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
+        </div>
 
         <div class="col-6 imgSelects">
 
