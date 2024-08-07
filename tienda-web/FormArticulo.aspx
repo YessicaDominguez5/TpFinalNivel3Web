@@ -35,53 +35,68 @@
                         <asp:Label ID="labelUrlImagenArticulo" runat="server" Text="URL IMAGEN" CssClass="labels"></asp:Label>
                         <asp:TextBox ID="txtUrlImagenArticulo" OnTextChanged="txtUrlImagenArticulo_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
-             
+
                 </ContentTemplate>
             </asp:UpdatePanel>
-                    <div class="mb-3">
-                        <asp:Label ID="labelPrecioArticulo" runat="server" Text="PRECIO" CssClass="labels"></asp:Label>
-                        <asp:TextBox ID="txtPrecioArticulo" CssClass="form-control" runat="server"></asp:TextBox>
+            <div class="mb-3">
+                <asp:Label ID="labelPrecioArticulo" runat="server" Text="PRECIO" CssClass="labels"></asp:Label>
+                <asp:TextBox ID="txtPrecioArticulo" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                <ContentTemplate>
+
+
+            <div class="mb-3">
+
+                <asp:Button ID="btnAceptarFormulario" OnClick="btnAceptarFormulario_Click" CssClass="btn btn-primary boton" runat="server" Text="ACEPTAR" />
+                <a href="ListaDeArticulos.aspx" class="btn btn-success boton">CANCELAR</a>
+                <%if (Request.QueryString["id"] != null)//si la pantalla es la de modificar que muestre el botón Eliminar
+                  {%>
+                <asp:Button ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger boton" runat="server" Text="ELIMINAR" />
+                <%if (visible)
+                  { %>
+                <div>
+
+                <asp:CheckBox ID="cBoxConfirmarEliminar" runat="server" />
+                <asp:Label ID="labelCheckBoxConfirmarEliminar" runat="server" Text="¿Está seguro que desea eliminar el artículo?"></asp:Label>
+                <asp:Button ID="btnConfirmarEliminar" OnClick="btnConfirmarEliminar_Click" CssClass="btn btn-danger boton" runat="server" Text="CONFIRMAR ELIMINAR" />
+                </div>
+                <%}
+                  }%>
+            </div>
+
+        </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+        <div class="col-6 imgSelects">
+
+
+            <div>
+                <div class="mb-3">
+                    <asp:Label ID="labelMarcaArticulo" runat="server" Text="MARCA" CssClass="labels"></asp:Label>
+                    <asp:DropDownList ID="ddlMarcaArticulo" CssClass="btn btn-outline-dark dropdown-toggle" runat="server"></asp:DropDownList>
+                </div>
+
+                <div class="mb-3">
+                    <asp:Label ID="labelCategoriaArticulo" runat="server" Text="CATEGORÍA" CssClass="labels"></asp:Label>
+                    <asp:DropDownList ID="ddlCategoriaArticulo" CssClass="btn btn-outline-dark dropdown-toggle" runat="server"></asp:DropDownList>
+                </div>
+            </div>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <ContentTemplate>
+
+                    <div>
+
+                        <asp:Image ID="imgArticulo" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9cSGzVkaZvJD5722MU5A-JJt_T5JMZzotcw&s" CssClass="imagen" runat="server" />
+
                     </div>
 
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
-                    <div class="mb-3">
-
-                        <asp:Button ID="btnAceptarFormulario" OnClick="btnAceptarFormulario_Click" CssClass="btn btn-primary boton" runat="server" Text="ACEPTAR" />
-                        <a href="ListaDeArticulos.aspx" class="btn btn-success boton">CANCELAR</a>
-                     </div>
-
-
-
-    </div>
-
-    <div class="col-6 imgSelects">
-
-
-        <div>
-            <div class="mb-3">
-                <asp:Label ID="labelMarcaArticulo" runat="server" Text="MARCA" CssClass="labels"></asp:Label>
-                <asp:DropDownList ID="ddlMarcaArticulo" CssClass="btn btn-outline-dark dropdown-toggle" runat="server"></asp:DropDownList>
-            </div>
-
-            <div class="mb-3">
-                <asp:Label ID="labelCategoriaArticulo" runat="server" Text="CATEGORÍA" CssClass="labels"></asp:Label>
-                <asp:DropDownList ID="ddlCategoriaArticulo" CssClass="btn btn-outline-dark dropdown-toggle" runat="server"></asp:DropDownList>
-            </div>
-        </div>
-        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-            <ContentTemplate>
-
-        <div>
-
-            <asp:Image ID="imgArticulo" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9cSGzVkaZvJD5722MU5A-JJt_T5JMZzotcw&s" CssClass="imagen" runat="server" />
 
         </div>
-
-            </ContentTemplate>
-        </asp:UpdatePanel>
-       
-
-    </div>
 
 
 

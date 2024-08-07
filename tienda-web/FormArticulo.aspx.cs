@@ -12,6 +12,7 @@ namespace tienda_web
 {
     public partial class FormArticulo : System.Web.UI.Page
     {
+		public bool visible = false;
         protected void Page_Load(object sender, EventArgs e)
         {
 			
@@ -133,6 +134,26 @@ namespace tienda_web
                     Response.Redirect("Error.aspx");
 
                 }
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+			visible = true;
+        }
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+			ArticuloNegocio negocio = new ArticuloNegocio();
+
+			int id = int.Parse(Request.QueryString["id"]);
+			
+			if(cBoxConfirmarEliminar.Checked)
+			{
+				negocio.EliminarFisico(id);
+
+				Response.Redirect("ListaDeArticulos.aspx");
+
+			}
         }
     }
 }
