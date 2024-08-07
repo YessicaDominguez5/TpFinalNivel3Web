@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="Formulario" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="FormArticulo.aspx.cs" Inherits="tienda_web.FormArticulo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="StyleMaster.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="row">
-        <div class="col">
-            <br />
+    <div class="row rowForm">
+        <div class="col-6">
+
             <div class="mb-3">
                 <asp:Label ID="labelId" runat="server" Text="ID" CssClass="labels"></asp:Label>
                 <asp:TextBox ID="txtIdArticulo" CssClass="form-control" runat="server"></asp:TextBox>
@@ -27,31 +28,31 @@
                 <asp:TextBox ID="txtDescripcionArticulo" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
 
-            <div class="mb-3">
-                <asp:Label ID="labelUrlImagenArticulo" runat="server" Text="URL IMAGEN" CssClass="labels"></asp:Label>
-                <asp:TextBox ID="txtUrlImagenArticulo" OnTextChanged="txtUrlImagenArticulo_TextChanged" CssClass="form-control" runat="server"></asp:TextBox>
-            </div>
+                    <div class="mb-3">
+                        <asp:Label ID="labelUrlImagenArticulo" runat="server" Text="URL IMAGEN" CssClass="labels"></asp:Label>
+                        <asp:TextBox ID="txtUrlImagenArticulo" OnTextChanged="txtUrlImagenArticulo_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+             
+                    <div class="mb-3">
+                        <asp:Label ID="labelPrecioArticulo" runat="server" Text="PRECIO" CssClass="labels"></asp:Label>
+                        <asp:TextBox ID="txtPrecioArticulo" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
 
-            <div class="mb-3">
-                <asp:Label ID="labelPrecioArticulo" runat="server" Text="PRECIO" CssClass="labels"></asp:Label>
-                <asp:TextBox ID="txtPrecioArticulo" CssClass="form-control" runat="server"></asp:TextBox>
-            </div>
+
+                    <div class="mb-3">
+
+                        <asp:Button ID="btnAceptarFormulario" OnClick="btnAceptarFormulario_Click" CssClass="btn btn-primary boton" runat="server" Text="ACEPTAR" />
+                        <a href="ListaDeArticulos.aspx" class="btn btn-success boton">CANCELAR</a>
+                     </div>
 
 
-            <div class="mb-3">
 
-                <asp:Button ID="btnAceptarFormulario" OnClick="btnAceptarFormulario_Click" CssClass="btn btn-primary" runat="server" Text="ACEPTAR" />
+    </div>
 
-                <a href="ListaDeArticulos.aspx" class="btn btn-success">CANCELAR</a>
+    <div class="col-6 imgSelects">
 
-            </div>
 
-        </div>
-
-        <div class="col">
-            <br />
-            <br />
-
+        <div>
             <div class="mb-3">
                 <asp:Label ID="labelMarcaArticulo" runat="server" Text="MARCA" CssClass="labels"></asp:Label>
                 <asp:DropDownList ID="ddlMarcaArticulo" CssClass="btn btn-outline-dark dropdown-toggle" runat="server"></asp:DropDownList>
@@ -61,19 +62,17 @@
                 <asp:Label ID="labelCategoriaArticulo" runat="server" Text="CATEGORÍA" CssClass="labels"></asp:Label>
                 <asp:DropDownList ID="ddlCategoriaArticulo" CssClass="btn btn-outline-dark dropdown-toggle" runat="server"></asp:DropDownList>
             </div>
+        </div>
+        <div>
 
-            <%--<div>
-                <asp:Label ID="labelActivoArticulo" CssClass="labels" runat="server" Text="ACTIVO"></asp:Label>
-                <asp:CheckBox ID="ckbActivoArticulo" Text="" runat="server" />
-            </div>--%>
+            <asp:Image ID="imgArticulo" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9cSGzVkaZvJD5722MU5A-JJt_T5JMZzotcw&s" CssClass="imagen" runat="server" />
 
         </div>
-        <div class="col">
-
-            <asp:Image ID="imgArticulo" runat="server" />
 
 
-        </div>
+    </div>
+
+
 
     </div>
 

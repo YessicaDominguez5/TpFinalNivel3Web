@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="ListaArticulos" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ListaDeArticulos.aspx.cs" Inherits="tienda_web.ListaDeArticulos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <link rel="stylesheet" href="StyleMaster.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
@@ -11,7 +12,7 @@
             <div class="col">
 
 
-            <asp:GridView ID="dgvArticulos" AutoGenerateColumns="false" DataKeyNames="Id" CssClass="table table-bordered border-primary text-center table-dark" AllowPaging="true" PageSize="5" OnPageIndexChanging="dgvArticulos_PageIndexChanging" runat="server">
+            <asp:GridView ID="dgvArticulos" AutoGenerateColumns="false" DataKeyNames="Id" CssClass="table table-bordered border-primary text-center table-dark" AllowPaging="true" PageSize="5" OnPageIndexChanging="dgvArticulos_PageIndexChanging" OnSelectedIndexChanged="dgvArticulos_SelectedIndexChanged" runat="server">
                 <Columns>
                     <asp:BoundField HeaderText="Código" DataField="CodigoArticulo" />
                     <asp:BoundField HeaderText="Artículo" DataField="NombreArticulo" />
@@ -28,7 +29,7 @@
         <div class="col-2"></div>
     </div>
 
-    <a href="FormArticulo.aspx" class="btn btn-primary">AGREGAR ARTÍCULO</a>
+    <a href="FormArticulo.aspx" class="btn btn-primary boton">AGREGAR ARTÍCULO</a>
     
 
 

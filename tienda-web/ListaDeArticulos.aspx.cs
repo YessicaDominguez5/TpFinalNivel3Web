@@ -35,5 +35,13 @@ namespace tienda_web
             dgvArticulos.PageIndex = e.NewPageIndex;
             dgvArticulos.DataBind();
         }
+
+        protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = int.Parse(dgvArticulos.SelectedDataKey.Value.ToString());
+            //trae el id que es el dataKey del artículo seleccionado
+            Response.Redirect("FormArticulo.aspx?id=" + id);
+            //Apretando el lápiz de la grilla redirige a la pantalla FormArticulo y envía el id que se trajo en la linea 41.
+        }
     }
 }

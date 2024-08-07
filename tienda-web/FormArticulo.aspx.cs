@@ -14,15 +14,16 @@ namespace tienda_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-			MarcaNegocio negocioMarca = new MarcaNegocio();
-			CategoriaNegocio negocioCategoria = new CategoriaNegocio();
 			
 			try
 			{
-				if(!IsPostBack) {
+				if(!IsPostBack) 
+				{
+                    MarcaNegocio negocioMarca = new MarcaNegocio();
+                    CategoriaNegocio negocioCategoria = new CategoriaNegocio();
 
-					//se carga el desplegable con las marcas cargadas en la base de datos
-					ddlMarcaArticulo.DataSource = negocioMarca.listar();
+                    //se carga el desplegable con las marcas cargadas en la base de datos
+                    ddlMarcaArticulo.DataSource = negocioMarca.listar();
 					
 					ddlMarcaArticulo.DataValueField = "IdMarca";
 					ddlMarcaArticulo.DataTextField = "DescripcionMarca";
@@ -39,6 +40,28 @@ namespace tienda_web
 
 					//se desactiva el textbox del id para que no se modifique
 					txtIdArticulo.Enabled = false;
+
+					if (Request.QueryString["id"] != null) {
+					
+						ArticuloNegocio negocio = new ArticuloNegocio();
+
+						string id = Request.QueryString["id"];
+
+						Articulo seleccionado = negocio.Listar(id)[0];//Le mandamos el id para que traiga un único artículo, y esa lista en el índice 0 lo guardamos en seleccionado para manejarlo como Artículo en lugar de una lista.
+
+						txtIdArticulo.Text = id;//(Request.QueryString["id"])
+						txtCodigoArticulo.Text = seleccionado.CodigoArticulo;
+						txtNombreArticulo.Text = seleccionado.NombreArticulo;
+						txtDescripcionArticulo.Text = seleccionado.DescripcionArticulo;
+						txtUrlImagenArticulo.Text = seleccionado.UrlImagenArticulo;
+						imgArticulo.ImageUrl = txtUrlImagenArticulo.Text;
+						//txtUrlImagenArticulo_TextChanged(sender, e);
+						txtPrecioArticulo.Text = seleccionado.PrecioArticulo.ToString();
+						ddlMarcaArticulo.SelectedValue = seleccionado.MarcaArticulo.IdMarca.ToString();
+						ddlCategoriaArticulo.SelectedValue = seleccionado.CategoriaArticulo.IdCategoria.ToString();
+
+
+                    }
 		
 				
 				}
@@ -70,10 +93,22 @@ namespace tienda_web
 				articulo.MarcaArticulo.IdMarca = int.Parse(ddlMarcaArticulo.SelectedValue);
 				articulo.CategoriaArticulo = new Categoria();
 				articulo.CategoriaArticulo.IdCategoria = int.Parse(ddlCategoriaArticulo.SelectedValue);
-				//articulo.Activo = ckbActivoArticulo.Checked;
+				
 
+				if (Request.QueryString["id"] != null)
+				{
+					articulo.Id = int.Parse(Request.QueryString["id"]);
+					negocio.modificar(articulo);
+					Response.Redirect("ListaDeArticulos.aspx", false);
+
+				}
+				else
+				{
+				
 				negocio.agregar(articulo);
 				Response.Redirect("ListaDeArticulos.aspx", false);
+
+				}
 
 			}
 			catch (Exception ex)
@@ -86,12 +121,11 @@ namespace tienda_web
 
         protected void txtUrlImagenArticulo_TextChanged(object sender, EventArgs e)
         {
-			if(!IsPostBack)
-			{
 				try
 				{
-				imgArticulo.ImageUrl = txtUrlImagenArticulo.Text;
 
+                    imgArticulo.ImageUrl = txtUrlImagenArticulo.Text;
+					
 				}
 				catch (Exception ex) 
 				{
@@ -99,8 +133,6 @@ namespace tienda_web
                     Response.Redirect("Error.aspx");
 
                 }
-
-			}
         }
     }
 }
