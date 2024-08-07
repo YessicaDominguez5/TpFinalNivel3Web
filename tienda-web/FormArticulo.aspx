@@ -27,12 +27,17 @@
                 <asp:Label ID="labelDescripcionArticulo" runat="server" Text="DESCRIPCIÓN" CssClass="labels"></asp:Label>
                 <asp:TextBox ID="txtDescripcionArticulo" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
 
                     <div class="mb-3">
                         <asp:Label ID="labelUrlImagenArticulo" runat="server" Text="URL IMAGEN" CssClass="labels"></asp:Label>
                         <asp:TextBox ID="txtUrlImagenArticulo" OnTextChanged="txtUrlImagenArticulo_TextChanged" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
              
+                </ContentTemplate>
+            </asp:UpdatePanel>
                     <div class="mb-3">
                         <asp:Label ID="labelPrecioArticulo" runat="server" Text="PRECIO" CssClass="labels"></asp:Label>
                         <asp:TextBox ID="txtPrecioArticulo" CssClass="form-control" runat="server"></asp:TextBox>
@@ -63,12 +68,18 @@
                 <asp:DropDownList ID="ddlCategoriaArticulo" CssClass="btn btn-outline-dark dropdown-toggle" runat="server"></asp:DropDownList>
             </div>
         </div>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+
         <div>
 
             <asp:Image ID="imgArticulo" ImageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9cSGzVkaZvJD5722MU5A-JJt_T5JMZzotcw&s" CssClass="imagen" runat="server" />
 
         </div>
 
+            </ContentTemplate>
+        </asp:UpdatePanel>
+       
 
     </div>
 
