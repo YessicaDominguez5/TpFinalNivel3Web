@@ -24,6 +24,11 @@ namespace tienda_web
                 imagenDetalle.ImageUrl = seleccionado.UrlImagenArticulo;
 
                 labelCodigoDetalle.Text = "Código de Artículo: " + seleccionado.CodigoArticulo;
+                labelNombreDetalle.Text = "Artículo: " + seleccionado.NombreArticulo;
+                labelDescripcionDetalle.Text = "Descripción: " + seleccionado.DescripcionArticulo;
+                labelMarcaDetalle.Text = "Marca: " + seleccionado.MarcaArticulo.DescripcionMarca;
+                labelCategoriaDetalle.Text = "Categoría: " + seleccionado.CategoriaArticulo.DescripcionCategoria;
+                labelPrecioDetalle.Text = "Precio: " + seleccionado.PrecioArticulo.ToString();
 
             
             }

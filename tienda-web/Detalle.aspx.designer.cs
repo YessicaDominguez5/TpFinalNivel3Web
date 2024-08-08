@@ -24,6 +24,15 @@ namespace tienda_web
         protected global::System.Web.UI.WebControls.Image imagenDetalle;
 
         /// <summary>
+        /// labelNombreDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelNombreDetalle;
+
+        /// <summary>
         /// labelCodigoDetalle control.
         /// </summary>
         /// <remarks>
@@ -31,5 +40,41 @@ namespace tienda_web
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labelCodigoDetalle;
+
+        /// <summary>
+        /// labelDescripcionDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelDescripcionDetalle;
+
+        /// <summary>
+        /// labelMarcaDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelMarcaDetalle;
+
+        /// <summary>
+        /// labelCategoriaDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelCategoriaDetalle;
+
+        /// <summary>
+        /// labelPrecioDetalle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelPrecioDetalle;
     }
 }
