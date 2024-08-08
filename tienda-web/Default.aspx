@@ -38,7 +38,7 @@
                     <h5 class="card-title"><%: articulo.NombreArticulo %></h5>
                     <p class="card-text">Tipo: <%: articulo.CategoriaArticulo.DescripcionCategoria%></p>
                 </div>
-                <a href="Detalle.aspx?id=" <%: articulo.Id %>>Ver Detalle</a>
+                <a class="btn btn-primary verDetalle" href="Detalle.aspx?id=<%: articulo.Id %>">Ver Detalle</a>
             </div>
         </div>
 
