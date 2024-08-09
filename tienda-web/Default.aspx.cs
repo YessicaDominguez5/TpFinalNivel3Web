@@ -16,7 +16,20 @@ namespace tienda_web
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaDeArticulos = negocio.Listar();
-            //traer de la base de datos la lista de artículos para mostrarlas en forma de cards
+     
+        }
+
+        protected void txtFiltroRapido_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> aux = new List<Articulo>();
+
+            aux.AddRange(listaDeArticulos.FindAll(x => x.NombreArticulo.ToUpper().Contains(txtFiltroRapido.Text.ToUpper())));
+
+            if(aux.Count > 0 )
+            {
+                listaDeArticulos = aux;
+            }
+
         }
     }
 }

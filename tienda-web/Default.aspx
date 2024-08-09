@@ -9,22 +9,53 @@
 
     </div>
 
-    <%--carrousel automático--%>
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="./Imagenes/logotipo.jpg" class="d-block w-100  carrousel" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="<%:listaDeArticulos[4].UrlImagenArticulo %>" class="d-block w-100  carrousel" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="<%:listaDeArticulos[3].UrlImagenArticulo %>" class="d-block w-100  carrousel" alt="...">
+    <%--   filtro rápido--%>
+    <div class="mb-3 filtroRapido">
+        <asp:Label ID="labelFiltroRapido" CssClass="labels" runat="server" Text="Filtro:"></asp:Label>
+        <asp:TextBox ID="txtFiltroRapido" OnTextChanged="txtFiltroRapido_TextChanged" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+    </div>
+    <div>
+        <asp:CheckBox ID="cBoxFiltroAvanzado" AutoPostBack="true" runat="server" />
+        <asp:Label ID="labelFiltroAvanzado" runat="server" CssClass="labels" Text="Filtro Avanzado"></asp:Label>
+
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="mb-3">
+
+                <asp:Label ID="labelCampo" CssClass="labels" runat="server" Text="Campo"></asp:Label>
+                <asp:DropDownList ID="ddlCampo" CssClass="form-control" runat="server">
+                    <asp:ListItem Text="Artículo" />
+                    <asp:ListItem Text="Marca" />
+                    <asp:ListItem Text="Precio" />
+                </asp:DropDownList>
+
             </div>
         </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label ID="labelCriterio" CssClass="labels" runat="server" Text="Criterio"></asp:Label>
+                <asp:DropDownList ID="ddlCriterio" CssClass="form-control" runat="server">
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <asp:Label ID="labelFiltroAvanzado2" CssClass="labels" runat="server" Text="Filtro"></asp:Label>
+                <asp:TextBox ID="txtFiltroAvanzado" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="mb-3 btnBuscar">
+                <asp:Button ID="btnBuscarFiltroAvanzado" CssClass="btn btn-primary" runat="server" Text="Buscar" />
+                
+            </div>
+        </div>
+
     </div>
 
- <%--   cards--%>
+    <%--   cards--%>
     <div class="row row-cols-1 row-cols-md-3 g-4 rowDefault">
 
         <% foreach (dominio.Articulo articulo in listaDeArticulos)
