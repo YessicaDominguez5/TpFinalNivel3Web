@@ -47,11 +47,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\TPFinalNivel3\TPFinalNivel3\accesoAdatos\accesoAdatos.csproj">
+    <ProjectReference Include="..\accesoAdatos\accesoAdatos.csproj">
       <Project>{abc4cdfc-f526-43db-84be-b2652374d515}</Project>
       <Name>accesoAdatos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\TPFinalNivel3\TPFinalNivel3\dominio\dominio.csproj">
+    <ProjectReference Include="..\dominio\dominio.csproj">
       <Project>{f2b029cf-b34d-4043-9f3d-706e13517a5d}</Project>
       <Name>dominio</Name>
     </ProjectReference>

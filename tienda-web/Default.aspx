@@ -8,53 +8,71 @@
         <h1 class="text-sm-center text-bg-primary rowDefault">CATÁLOGO DE ARTÍCULOS</h1>
 
     </div>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
     <%--   filtro rápido--%>
     <div class="mb-3 filtroRapido">
-        <asp:Label ID="labelFiltroRapido" CssClass="labels" runat="server" Text="Filtro:"></asp:Label>
-        <asp:TextBox ID="txtFiltroRapido" OnTextChanged="txtFiltroRapido_TextChanged" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+
+                <asp:Label ID="labelFiltroRapido" CssClass="labels" runat="server" Text="Filtro:"></asp:Label>
+                <asp:TextBox ID="txtFiltroRapido" OnTextChanged="txtFiltroRapido_TextChanged" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
     <div>
-        <asp:CheckBox ID="cBoxFiltroAvanzado" AutoPostBack="true" runat="server" />
-        <asp:Label ID="labelFiltroAvanzado" runat="server" CssClass="labels" Text="Filtro Avanzado"></asp:Label>
+        <%--filtro avanzado--%>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+
+                <asp:CheckBox ID="cBoxFiltroAvanzado" OnCheckedChanged="cBoxFiltroAvanzado_CheckedChanged" AutoPostBack="true" runat="server" />
+                <asp:Label ID="labelFiltroAvanzado" runat="server" Text="Filtro Avanzado"></asp:Label>
+
 
     </div>
-    <div class="row">
-        <div class="col-3">
-            <div class="mb-3">
+    <%if(filtroAvanzado)
+        {%>
+    <div class="rowFiltroAvanzado">
 
-                <asp:Label ID="labelCampo" CssClass="labels" runat="server" Text="Campo"></asp:Label>
-                <asp:DropDownList ID="ddlCampo" CssClass="form-control" runat="server">
-                    <asp:ListItem Text="Artículo" />
-                    <asp:ListItem Text="Marca" />
-                    <asp:ListItem Text="Precio" />
-                </asp:DropDownList>
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3">
 
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="mb-3">
-                <asp:Label ID="labelCriterio" CssClass="labels" runat="server" Text="Criterio"></asp:Label>
-                <asp:DropDownList ID="ddlCriterio" CssClass="form-control" runat="server">
-                </asp:DropDownList>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="mb-3">
-                <asp:Label ID="labelFiltroAvanzado2" CssClass="labels" runat="server" Text="Filtro"></asp:Label>
-                <asp:TextBox ID="txtFiltroAvanzado" CssClass="form-control" runat="server"></asp:TextBox>
-            </div>
-        </div>
+                    <asp:Label ID="labelCampo" CssClass="labels" runat="server" Text="Campo"></asp:Label>
+                    <asp:DropDownList ID="ddlCampo" CssClass="form-control" runat="server">
+                        <asp:ListItem Text="Artículo" />
+                        <asp:ListItem Text="Marca" />
+                        <asp:ListItem Text="Precio" />
+                    </asp:DropDownList>
 
-        <div class="col-3">
-            <div class="mb-3 btnBuscar">
-                <asp:Button ID="btnBuscarFiltroAvanzado" CssClass="btn btn-primary" runat="server" Text="Buscar" />
-                
+                </div>
             </div>
-        </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <asp:Label ID="labelCriterio" CssClass="labels" runat="server" Text="Criterio"></asp:Label>
+                    <asp:DropDownList ID="ddlCriterio" CssClass="form-control" runat="server">
+                    </asp:DropDownList>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <asp:Label ID="labelFiltroAvanzado2" CssClass="labels" runat="server" Text="Filtro"></asp:Label>
+                    <asp:TextBox ID="txtFiltroAvanzado" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+            </div>
 
+            <div class="col-3">
+                <div class="mb-3 btnBuscar">
+                    <asp:Button ID="btnBuscarFiltroAvanzado" CssClass="btn btn-primary" runat="server" Text="Buscar" />
+
+                </div>
+            </div>
+
+        </div>
+        <%}%>
     </div>
-
+            </ContentTemplate>
+        </asp:UpdatePanel>
     <%--   cards--%>
     <div class="row row-cols-1 row-cols-md-3 g-4 rowDefault">
 
