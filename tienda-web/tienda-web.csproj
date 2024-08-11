@@ -140,10 +140,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Nivel2MP\TpIntegradorNivel2C-\Negocio\negocio.csproj">
-      <Project>{8d7dfdd8-5f7b-47b4-a91d-f5096d07eefd}</Project>
-      <Name>negocio</Name>
-    </ProjectReference>
     <ProjectReference Include="..\accesoAdatos\accesoAdatos.csproj">
       <Project>{abc4cdfc-f526-43db-84be-b2652374d515}</Project>
       <Name>accesoAdatos</Name>
