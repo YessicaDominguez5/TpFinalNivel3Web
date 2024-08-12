@@ -13,7 +13,8 @@ namespace tienda_web
     {
         public bool filtroAvanzado { get; set; } = false;
         public bool filtrado { get; set; } = false;
-        public bool filtradoAvanzado { get; set; } = false;
+        public bool filtradoAvanzadoConfiguracionDDl { get; set; } = false;
+        public bool filtradoAvanzadoVolver { get; set; }
 
         public List<Articulo> listaDeArticulos {  get; set; }
         protected void Page_Load(object sender, EventArgs e)
@@ -56,6 +57,7 @@ namespace tienda_web
 
         protected void cBoxFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
+            filtradoAvanzadoConfiguracionDDl = true;
            //se le asigna a filtro avanzado si el checkBox está en true o false
             filtroAvanzado = cBoxFiltroAvanzado.Checked;
 
@@ -69,6 +71,12 @@ namespace tienda_web
                 txtFiltroRapido.Text = "";
                 labelSinFiltros.Text = "";
                 // si el filtro rápido está desactivado que no se muestre la labelSinFiltros ni el contenido del textBox del filtro rápido
+            }
+            if (filtradoAvanzadoConfiguracionDDl)
+            {
+                // Forzamos el metodo selected index changed cuando 
+                // apretamos en el check de filtro avanzado
+                ddlCampo_SelectedIndexChanged(sender, e);
             }
 
 
@@ -119,7 +127,8 @@ namespace tienda_web
                 }
 
                 filtrado = false;
-                filtradoAvanzado = true;
+                filtradoAvanzadoVolver = true;
+              
 
             }
             catch (Exception ex)

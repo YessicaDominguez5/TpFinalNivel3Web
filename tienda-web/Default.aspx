@@ -75,7 +75,7 @@
 
                 </div>
                 <asp:Label ID="labelSinFiltrosAvanzados" runat="server" Text=""></asp:Label>
-                <%if (filtradoAvanzado)
+                <%if (filtradoAvanzadoVolver)
                     {%>
                 <a href="Default.aspx">Volver</a>
                 <%}%>
@@ -104,8 +104,8 @@
                 </div>
 
                 <% } %>
+    </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-    </div>
 
 </asp:Content>
