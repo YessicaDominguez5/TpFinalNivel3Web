@@ -11,8 +11,8 @@ namespace tienda_web
 {
     public partial class Default : System.Web.UI.Page
     {
-        public bool filtroAvanzado { get; set; } = false;
         public bool filtrado { get; set; } = false;
+        public bool filtroAvanzado { get; set; } = false;
         public bool filtradoAvanzadoConfiguracionDDl { get; set; } = false;
         public bool filtradoAvanzadoVolver { get; set; }
 
@@ -58,8 +58,8 @@ namespace tienda_web
         protected void cBoxFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
             filtradoAvanzadoConfiguracionDDl = true;
-           //se le asigna a filtro avanzado si el checkBox está en true o false
-            filtroAvanzado = cBoxFiltroAvanzado.Checked;
+           
+            filtroAvanzado = cBoxFiltroAvanzado.Checked;//se le asigna a filtro avanzado si el checkBox está en true o false
 
             //txtFiltroRapido.Enable = false; filtro desactivado
             //si el checkBox de filtro avanzado está activado, desactivo el filtro rápido. Lo contrario a filtroAvanzado.
