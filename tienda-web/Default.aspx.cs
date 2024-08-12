@@ -125,6 +125,10 @@ namespace tienda_web
                 {
                     labelSinFiltrosAvanzados.Text = "No se encontraron artículos";
                 }
+                else
+                {
+                    labelSinFiltrosAvanzados.Text = "";
+                }
 
                 filtrado = false;
                 filtradoAvanzadoVolver = true;

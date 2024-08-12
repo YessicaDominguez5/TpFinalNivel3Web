@@ -20,13 +20,13 @@ namespace tienda_web
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                
-            //lista los artículos en el gridview
-            if(!IsPostBack)
+
+                //lista los artículos en el gridview
+                if (!IsPostBack)
                 {
 
-            dgvArticulos.DataSource = negocio.Listar();
-            dgvArticulos.DataBind();
+                    dgvArticulos.DataSource = negocio.Listar();
+                    dgvArticulos.DataBind();
 
                 }
             }
@@ -65,6 +65,9 @@ namespace tienda_web
             if(listaFiltrada.Count == 0) {
 
                 labelSinFiltrosListaDeArticulos.Text = "No se encontraron artículos";
+            } else
+            {
+                labelSinFiltrosListaDeArticulos.Text = "";
             }
             filtradoListaDeArticulos = true;
 

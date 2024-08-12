@@ -95,7 +95,9 @@
 
 .filtroRapido{
     margin-top: 5%;
-    width:30%
+    width:30%;
+    margin-left:5%;
+    
 }
 .btnBuscar{
     margin-top:8.5%;
@@ -103,5 +105,12 @@
 }
 .rowFiltroAvanzado{
     margin-top: 3%;
+    margin-left:5%;
 }
+.checkBox{
+
+    margin-left:5%;
+    margin-top:1%;
+}
+
 

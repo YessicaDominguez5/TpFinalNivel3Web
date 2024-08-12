@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="StyleMaster.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="container">
     <div>
         <h1 class="text-sm-center text-bg-primary rowDefault">CATÁLOGO DE ARTÍCULOS</h1>
 
@@ -30,7 +31,7 @@
         <ContentTemplate>
             <div>
 
-                <asp:CheckBox ID="cBoxFiltroAvanzado" OnCheckedChanged="cBoxFiltroAvanzado_CheckedChanged" AutoPostBack="true" runat="server" />
+                <asp:CheckBox ID="cBoxFiltroAvanzado" CssClass="checkBox" OnCheckedChanged="cBoxFiltroAvanzado_CheckedChanged" AutoPostBack="true" runat="server" />
                 <asp:Label ID="labelFiltroAvanzado" runat="server" Text="Filtro Avanzado"></asp:Label>
 
 
@@ -87,6 +88,8 @@
 
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
+
+           
             <div class="row row-cols-1 row-cols-md-3 g-4 rowDefault">
                 <% foreach (dominio.Articulo articulo in listaDeArticulos)
                     {%>
@@ -104,8 +107,9 @@
                 </div>
 
                 <% } %>
-    </div>
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+    </div>
 
 </asp:Content>
