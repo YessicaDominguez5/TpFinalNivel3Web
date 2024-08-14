@@ -97,7 +97,7 @@
 
                 <div class="col">
                     <div class="card">
-                        <img src="<%: articulo.UrlImagenArticulo %>" class="card-img-top" alt="<%: articulo.NombreArticulo%>">
+                        <img src="<%: articulo.UrlImagenArticulo %>" class="card-img-top imgCard" alt="<%: articulo.NombreArticulo%>">
                         <div class="card-body">
                             <h5 class="card-title"><%: articulo.NombreArticulo %></h5>
                             <p class="card-text">Tipo: <%: articulo.CategoriaArticulo.DescripcionCategoria%></p>
