@@ -41,9 +41,6 @@
 
 .imgCard {
     height: 400px;
-    width: 300px;
-    margin-right: 5%;
-    margin-left: 18%;
 }
 
 .rowDefault{
@@ -112,5 +109,19 @@
     margin-left:5%;
     margin-top:1%;
 }
+
+.login {
+    margin-top: 5%;
+    width: 50%;
+    margin-left: 25%;
+}
+.btnLogin {
+    margin-top: 10%;
+    margin-left: 40%;
+   
+}
+
+
+
 
 

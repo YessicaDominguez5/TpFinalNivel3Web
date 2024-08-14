@@ -18,7 +18,7 @@
 
         <header>
             <div class="buttonHeaders">
-                <asp:Button ID="btnLogin" runat="server" Style="margin-right: 15px; border-radius: 5px" CssClass="btn btn-outline-dark btn-sm" Text="Iniciar sesión" />
+                <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" Style="margin-right: 15px; border-radius: 5px" CssClass="btn btn-outline-dark btn-sm" Text="Iniciar sesión" />
                 <asp:Button ID="btnRegistrarse" runat="server" Style="margin-right: 15px; border-radius: 5px" CssClass="btn btn-outline-dark btn-sm" Text="Crear cuenta" />
             </div>
 
