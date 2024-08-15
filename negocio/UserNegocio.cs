@@ -7,6 +7,7 @@ using dominio;
 using accesoAdatos;
 using System.Security.Cryptography;
 
+
 namespace Negocio
 {
     public class UserNegocio
@@ -40,5 +41,33 @@ namespace Negocio
 				datos.CerrarConexion();
 			}
         }
+
+		public int InsertarNuevoRegistro(User usuarioNuevo)
+		{
+			AccesoADatos datos = new AccesoADatos();
+
+			try
+			{
+				datos.SetearConsulta("insert into USERS (email,pass,nombre,apellido,admin) output inserted.Id values (@email,@pass,@nombre,@apellido,0)");
+
+				datos.SetearParametros("@email",usuarioNuevo.Usuario);
+                datos.SetearParametros("@pass",usuarioNuevo.Pass);
+                datos.SetearParametros("@nombre",usuarioNuevo.Nombre);
+                datos.SetearParametros("@apellido",usuarioNuevo.Apellido);
+				return datos.EjecutarAccionScalar(); //devuelve el id del registro que acabamos de ingresar
+            }
+			catch (Exception ex)
+			{
+
+				throw ex;
+			}
+			finally
+			{
+				datos.CerrarConexion();
+
+			}
+
+		}
+
     }
 }

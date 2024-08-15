@@ -90,5 +90,22 @@ namespace accesoAdatos
 
 
         }
+
+        public int EjecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+
+            try
+            {
+                conexion.Open();
+                return int.Parse(comando.ExecuteScalar().ToString());
+                //devuelve el id del registro que acabamos de ingresar
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace tienda_web
         public List<Articulo> listaDeArticulos {  get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-      
+            
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {

@@ -9,7 +9,7 @@
     <asp:Label ID="labelError" runat="server" Text=""></asp:Label>
    
     <div>
-        <a href="Default.aspx" class="btn btn-primary">VOLVER</a>
+        <a href="Default.aspx" class="btn btn-primary inputs">VOLVER</a>
 
     </div>
 

@@ -36,7 +36,7 @@ namespace tienda_web
                 }
                 else
                 {
-                    Session.Add("error.aspx", "User o Pass incorrectos.");
+                    Session.Add("error", "User o Pass incorrectos.");
                     Response.Redirect("Error.aspx", false);
                 }
 

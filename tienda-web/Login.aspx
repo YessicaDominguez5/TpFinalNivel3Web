@@ -10,11 +10,11 @@
 
         <div>
         <asp:Label ID="labelUser" CssClass="labels" runat="server" Text="User"></asp:Label>
-        <asp:TextBox ID="txtUser" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtUser" TextMode="Email" CssClass="form-control" runat="server"></asp:TextBox>
         </div>
         <div class="rowForm">
         <asp:Label ID="labelPass" CssClass="labels" runat="server" Text="Pass"></asp:Label>
-        <asp:TextBox ID="txtPass" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtPass" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
         </div>
         <div>
         <asp:Button ID="btnIngresarLogin" CssClass="btn btn-primary btnLogin" OnClick="btnIngresarLogin_Click" runat="server" Text="INGRESAR" />
