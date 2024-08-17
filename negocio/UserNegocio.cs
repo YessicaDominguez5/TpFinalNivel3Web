@@ -113,7 +113,8 @@ namespace Negocio
 				datos.SetearParametros("@id", usuarioAActualizar.Id);
 				datos.SetearParametros("@nombre", usuarioAActualizar.Nombre);
                 datos.SetearParametros("@apellido", usuarioAActualizar.Apellido);
-                datos.SetearParametros("@img", usuarioAActualizar.UrlImagenPerfil);
+                datos.SetearParametros("@img", usuarioAActualizar.UrlImagenPerfil != null ? usuarioAActualizar.UrlImagenPerfil : (object)DBNull.Value); //mandar null a la base de datos
+
 				datos.EjecutarAccion();
 
             }
@@ -127,10 +128,28 @@ namespace Negocio
 				datos.CerrarConexion();
 
 			}
+		}
 
+		public void ActualizarImagenUsuario(int id)
+		{
+			AccesoADatos datos = new AccesoADatos();
 
+			try
+			{ 
+				datos.SetearConsulta("UPDATE USERS SET urlImagenPerfil = NULL WHERE Id = @id");
+				datos.SetearParametros("@id", id);
 
+				datos.EjecutarAccion();
+			}
+			catch (Exception ex)
+			{
 
+				throw ex;
+			}
+			finally
+			{
+				datos.CerrarConexion();
+			}
 		}
 
     }

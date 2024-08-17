@@ -20,10 +20,12 @@
             <div class="mb-3">
                 <asp:Label ID="labelNombrePerfil" CssClass="labels" runat="server" Text="Nombre"></asp:Label>
                 <asp:TextBox ID="txtNombrePerfil" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="El nombre es requerido" ControlToValidate="txtNombrePerfil" runat="server" />
             </div>
             <div class="mb-3">
                 <asp:Label ID="labelApellidoPerfil" CssClass="labels" runat="server" Text="Apellido"></asp:Label>
                 <asp:TextBox ID="txtApellidoPerfil" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="El apellido es requerido" ControlToValidate="txtApellidoPerfil" runat="server" />
             </div>
             <div class="mb-3">
                 <asp:Label ID="labelSeleccionImagenPerfil" CssClass="labels" runat="server" Text="Seleccione imagen de perfil"></asp:Label>
@@ -33,12 +35,12 @@
                 <asp:Button ID="btnAceptarPerfil" OnClick="btnAceptarPerfil_Click" CssClass="btn btn-primary inputs" runat="server" Text="GUARDAR" />
             </div>
         </div>
-    <div class="col">
+        <div class="col">
 
-        <asp:Image ID="imgPerfil" CssClass="img-fluid mb-3 imagenPerfil" runat="server" />
+            <asp:Image ID="imgPerfil" CssClass="img-fluid mb-3 imagenPerfil" runat="server" />
 
+        </div>
     </div>
-    </div>
-   
+
 
 </asp:Content>
