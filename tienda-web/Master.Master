@@ -29,9 +29,11 @@
                     else
                     { %>
                     
-                <asp:Button ID="btnDesloguearse" CssClass="btn btn-outline-dark btn-sm" OnClick="btnDesloguearse_Click" runat="server" Text="Cerrar Sesión" />
+                <asp:Button ID="btnDesloguearse" CssClass="btn btn-outline-dark btn-sm" Style="margin-right:1%" OnClick="btnDesloguearse_Click" runat="server" Text="Cerrar Sesión" />
                   
                 <%}%>
+
+                <asp:Image ID="imgAvatar" style="border-radius: 50%; height:40px; width:40px" runat="server" />
             </div>
 
             <div style="text-align: center;">

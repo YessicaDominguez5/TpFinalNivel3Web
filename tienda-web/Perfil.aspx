@@ -35,7 +35,7 @@
         </div>
     <div class="col">
 
-        <asp:Image ID="imgPerfil" ImageUrl="https://lh5.googleusercontent.com/proxy/9vqIPeIeHQHyGEo43DlSgD-DUtidieclv56O6UoAcYNGPXGNnZwFJL2V7oSodehCB1YT28jit7pMSVjNTnrBOnlBxW0CiRmOeH22FlPockzEbfdQPHLkDMPcgMwWdNfVHF1r2QpUk6W_aY_J87A9lFtYKMHf8_xhkMB7l_4=w1200-h630-p-k-no-nu" CssClass="img-fluid mb-3 imagenPerfil" runat="server" />
+        <asp:Image ID="imgPerfil" CssClass="img-fluid mb-3 imagenPerfil" runat="server" />
 
     </div>
     </div>
