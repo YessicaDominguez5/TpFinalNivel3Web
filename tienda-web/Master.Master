@@ -43,13 +43,10 @@
                         <a class="nav-link links active" aria-current="Default.aspx" href="Default.aspx">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link links" href="#">Mi Perfil</a>
+                        <a class="nav-link links" href="Perfil.aspx">Mi Perfil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link links" href="#">Favoritos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link links" href="#">Contacto</a>
+                        <a class="nav-link links" href="Favoritos.aspx">Favoritos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link links" href="ListaDeArticulos.aspx">Listado de Artículos</a>

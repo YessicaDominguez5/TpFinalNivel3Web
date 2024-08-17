@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
 
 namespace tienda_web
 {
@@ -12,6 +13,20 @@ namespace tienda_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            UserNegocio negocio = new UserNegocio();
+
+            User usuario = (User)Session["usuario"];
+
+            if(usuario != null)
+            {
+            txtEmailPerfil.Text = usuario.Usuario;
+            txtEmailPerfil.Enabled = false;
+            txtNombrePerfil.Text = usuario.Nombre;
+            txtApellidoPerfil.Text = usuario.Apellido;
+            }
+
+            
+
             
         }
     }

@@ -90,7 +90,6 @@
 }
 
 .filtroRapido{
-    margin-top: 5%;
     width:30%;
     margin-left:5%;
     
@@ -123,7 +122,21 @@
 
     margin-top:1rem;
 }
+.volverArticulos {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.sinArticulos{
 
+    margin-left:5%;
+}
+.imagenPerfil {
+    margin-top: 5%;
+    height: 250px;
+    width: 250px;
+    margin-left:25%
+}
 
 
 

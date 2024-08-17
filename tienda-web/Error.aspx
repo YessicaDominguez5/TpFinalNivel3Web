@@ -7,10 +7,22 @@
     <h1>Error</h1>
 
     <asp:Label ID="labelError" runat="server" Text=""></asp:Label>
-   
+
+    <%if (Session["error"] != null && Session["error"].ToString() != "User o Pass incorrectos.")
+        { %>
     <div>
         <a href="Default.aspx" class="btn btn-primary inputs">VOLVER</a>
 
     </div>
 
+    <%}
+        else
+        {%>
+
+    <div>
+        <a href="Login.aspx" class="btn btn-primary inputs">VOLVER</a>
+
+    </div>
+
+    <%}%>
 </asp:Content>

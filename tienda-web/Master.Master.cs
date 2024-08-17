@@ -17,7 +17,6 @@ namespace tienda_web
             {
                 if (!Seguridad.SesionActiva(Session["usuario"]))
                 {
-
                     Response.Redirect("Login.aspx",false);
                 }
             

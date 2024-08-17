@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using dominio;
 using negocio;
+using Negocio;
 
 namespace tienda_web
 {
@@ -17,18 +18,25 @@ namespace tienda_web
         public bool filtradoAvanzadoVolverLArticulos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!Seguridad.SesionActiva(Session["usuario"]))
+            {
+                Response.Redirect("Login.aspx", false);
+            }
+            else if (Seguridad.SesionActiva(Session["usuario"]) && !Seguridad.EsAdmin(Session["usuario"]))
+            {
+                Session.Add("error", "Se requieren permisos de Admin para acceder a la página.");
+                Response.Redirect("Error.aspx");
+                //si no es Admin no se puede navegar por ListaDeArticulos.
+
+            }
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
 
-                //lista los artículos en el gridview
-                if (!IsPostBack)
-                {
-
                     dgvArticulos.DataSource = negocio.Listar();
                     dgvArticulos.DataBind();
 
-                }
+                
             }
             catch (Exception ex)
             {

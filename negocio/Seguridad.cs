@@ -22,5 +22,20 @@ namespace Negocio
             }
 
         }
+    public static bool EsAdmin(object usuario)
+    {
+        User user = usuario != null ? (User)usuario : null;
+
+            if (user.TipoUsuario == User.TipoUser.ADMIN)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+    }
+    
     }
 }

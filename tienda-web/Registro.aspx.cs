@@ -23,6 +23,7 @@ namespace tienda_web
                 User usuario = new User();
                 UserNegocio negocio = new UserNegocio();
 
+
                 usuario.Usuario = txtEmailRegistro.Text;
                 usuario.Pass = txtPassRegistro.Text;
                 usuario.Nombre = txtNombreRegistro.Text;
