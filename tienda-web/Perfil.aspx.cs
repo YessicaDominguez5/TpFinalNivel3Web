@@ -28,6 +28,23 @@ namespace tienda_web
             
 
             
+
+            
+        }
+
+        protected void btnAceptarPerfil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+                Response.Redirect("Error.aspx");
+            }
         }
     }
 }

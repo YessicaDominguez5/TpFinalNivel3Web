@@ -30,7 +30,7 @@
                 <input type="File" id="txtImagen" runat="server" class="form-control" />
             </div>
             <div>
-                <asp:Button ID="btnAceptarPerfil" CssClass="btn btn-primary" runat="server" Text="ACEPTAR" />
+                <asp:Button ID="btnAceptarPerfil" OnClick="btnAceptarPerfil_Click" CssClass="btn btn-primary inputs" runat="server" Text="GUARDAR" />
             </div>
         </div>
     <div class="col">

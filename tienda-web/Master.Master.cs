@@ -34,5 +34,12 @@ namespace tienda_web
             Response.Redirect("Registro.aspx");
 
         }
+
+        protected void btnDesloguearse_Click(object sender, EventArgs e)
+        {
+            Session.Clear(); //borra toda la session
+            //Session.Remove("trainee"); borra solo el objeto trainee
+            Response.Redirect("Login.aspx");
+        }
     }
 }

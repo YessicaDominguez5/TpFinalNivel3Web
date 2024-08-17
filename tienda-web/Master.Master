@@ -17,9 +17,21 @@
     <form id="form1" runat="server">
 
         <header>
+
             <div class="buttonHeaders">
+                <%if (!Negocio.Seguridad.SesionActiva(Session["usuario"]))
+                    {
+                %>
+
                 <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" Style="margin-right: 15px; border-radius: 5px" CssClass="btn btn-outline-dark btn-sm" Text="Iniciar sesión" />
                 <asp:Button ID="btnRegistrarse" runat="server" Style="margin-right: 15px; border-radius: 5px" OnClick="btnRegistrarse_Click" CssClass="btn btn-outline-dark btn-sm" Text="Crear cuenta" />
+                <%}
+                    else
+                    { %>
+                    
+                <asp:Button ID="btnDesloguearse" CssClass="btn btn-outline-dark btn-sm" OnClick="btnDesloguearse_Click" runat="server" Text="Cerrar Sesión" />
+                  
+                <%}%>
             </div>
 
             <div style="text-align: center;">

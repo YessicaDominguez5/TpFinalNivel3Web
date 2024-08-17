@@ -8,10 +8,19 @@
 
     <asp:Label ID="labelError" runat="server" Text=""></asp:Label>
 
-    <%if (Session["error"] != null && Session["error"].ToString() != "User o Pass incorrectos.")
+    <%if (Session["error"] != null && Session["error"].ToString() == "User o Pass incorrectos.")
         { %>
     <div>
-        <a href="Default.aspx" class="btn btn-primary inputs">VOLVER</a>
+        <a href="Login.aspx" class="btn btn-primary inputs">VOLVER</a>
+
+    </div>
+
+    <%}
+        else if (Session["error"] != null && Session["error"].ToString() == "Debe completar todos los campos para poder registrarse.")
+        { %>
+
+    <div>
+        <a href="Registro.aspx" class="btn btn-primary inputs">VOLVER</a>
 
     </div>
 
@@ -20,7 +29,7 @@
         {%>
 
     <div>
-        <a href="Login.aspx" class="btn btn-primary inputs">VOLVER</a>
+        <a href="Default.aspx" class="btn btn-primary inputs">VOLVER</a>
 
     </div>
 

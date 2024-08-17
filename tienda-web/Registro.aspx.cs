@@ -18,27 +18,52 @@ namespace tienda_web
 
         protected void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            try
+            User usuario = new User();
+            UserNegocio negocio = new UserNegocio();
+
+            string mail = txtEmailRegistro.Text;
+            string pass = txtPassRegistro.Text;
+            string nombre = txtNombreRegistro.Text;
+            string apellido = txtApellidoRegistro.Text;
+
+            if (Validacion.validaTextoVacio(mail) || Validacion.validaTextoVacio(pass) || Validacion.validaTextoVacio(nombre) || Validacion.validaTextoVacio(apellido))
             {
-                User usuario = new User();
-                UserNegocio negocio = new UserNegocio();
 
-
-                usuario.Usuario = txtEmailRegistro.Text;
-                usuario.Pass = txtPassRegistro.Text;
-                usuario.Nombre = txtNombreRegistro.Text;
-                usuario.Apellido = txtApellidoRegistro.Text;
-
-                usuario.Id = negocio.InsertarNuevoRegistro(usuario);
-                //Le mando el usuario con los datos cargados del registro, lo guarda en la base de datos y me devuelve el id del registro guardado.
-                Response.Redirect("Default.aspx", false);
-
+                Session.Add("error", "Debe completar todos los campos para poder registrarse.");
+                Response.Redirect("Error.aspx", false);
             }
-            catch (Exception ex)
+            else
             {
+                try
+                {
+                    usuario.Usuario = mail;
+                    usuario.Pass = pass;
+                    usuario.Nombre = nombre;
+                    usuario.Apellido = apellido;
 
-                Session.Add("error", ex);
-                Response.Redirect("Error.aspx");
+
+                    usuario.Id = negocio.InsertarNuevoRegistro(usuario);
+                    //Le mando el usuario con los datos cargados del registro, lo guarda en la base de datos y me devuelve el id del registro guardado.
+
+                    if(usuario.Id != 0)
+                    {
+                    Session.Add("usuario", usuario);
+                    Response.Redirect("Default.aspx", false);
+
+                    }
+                    else
+                    {
+                        Session.Add("error", "Debe completar todos los campos para poder registrarse.");
+                        Response.Redirect("Error.aspx");
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    Session.Add("error", "Debe completar todos los campos para poder registrarse.");
+                    Response.Redirect("Error.aspx");
+                }
             }
         }
     }

@@ -21,8 +21,18 @@ namespace tienda_web
         {
             User usuario = new User();
             UserNegocio negocio = new UserNegocio();
+
+            if(Validacion.validaTextoVacio(txtUser.Text) || Validacion.validaTextoVacio(txtPass.Text))
+            {
+                Session.Add("error", "User o Pass incorrectos.");
+                Response.Redirect("Error.aspx", false);
+            }
+            else
+            {
+
             usuario.Usuario = txtUser.Text;
             usuario.Pass = txtPass.Text;
+
 
             try
             {
@@ -48,6 +58,7 @@ namespace tienda_web
                 Response.Redirect("Error.aspx");
             }
 
+            }
         }
     }
 }

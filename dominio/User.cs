@@ -26,6 +26,6 @@ namespace dominio
 
         public TipoUser TipoUsuario { get; set; }
 
-
+        public string UrlImagenPerfil { get; set; }
     }
 }
