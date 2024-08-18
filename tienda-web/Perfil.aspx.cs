@@ -70,6 +70,13 @@ namespace tienda_web
 
         protected void btnAceptarPerfil_Click(object sender, EventArgs e)
         {
+
+            Page.Validate(); // se fija las validaciones como el requiredFieldValidator(ej: que el campo del nombre este completo)
+            if (!Page.IsValid) //si las validaciones no son validas no las guarda en la base de datos termina y te muestra por ej el requiredFieldValidator "El nombre es requerido"
+            {
+                return;
+            }
+
             UserNegocio negocio = new UserNegocio();
             try
             {

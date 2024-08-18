@@ -23,6 +23,7 @@ namespace tienda_web
 
             string mail = txtEmailRegistro.Text;
             string pass = txtPassRegistro.Text;
+            string repitePass = txtRepetirPass.Text;
             string nombre = txtNombreRegistro.Text;
             string apellido = txtApellidoRegistro.Text;
 
@@ -31,6 +32,11 @@ namespace tienda_web
 
                 Session.Add("error", "Debe completar todos los campos para poder registrarse.");
                 Response.Redirect("Error.aspx", false);
+            }else if(pass != repitePass)
+            {
+                Session.Add("error", "No coinciden las contraseñas");
+                Response.Redirect("Error.aspx", false);
+
             }
             else
             {

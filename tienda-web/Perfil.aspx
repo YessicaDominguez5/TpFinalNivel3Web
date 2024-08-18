@@ -19,13 +19,17 @@
             </div>
             <div class="mb-3">
                 <asp:Label ID="labelNombrePerfil" CssClass="labels" runat="server" Text="Nombre"></asp:Label>
-                <asp:TextBox ID="txtNombrePerfil" CssClass="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ErrorMessage="El nombre es requerido" ControlToValidate="txtNombrePerfil" runat="server" />
+                <asp:TextBox ID="txtNombrePerfil" CssClass="form-control" MaxLength="20" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="El nombre es requerido" ControlToValidate="txtNombrePerfil" CssClass="validacion" runat="server" />
+                <asp:RegularExpressionValidator ErrorMessage="Solo letras para este campo" ControlToValidate="txtNombrePerfil" runat="server" CssClass="validacion validator" ValidationExpression="^[a-zA-Z\s]*$" /> <%--solo letras y espacios--%>
+        
+               
             </div>
             <div class="mb-3">
                 <asp:Label ID="labelApellidoPerfil" CssClass="labels" runat="server" Text="Apellido"></asp:Label>
-                <asp:TextBox ID="txtApellidoPerfil" CssClass="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator ErrorMessage="El apellido es requerido" ControlToValidate="txtApellidoPerfil" runat="server" />
+                <asp:TextBox ID="txtApellidoPerfil" MaxLength="20" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="El apellido es requerido" ControlToValidate="txtApellidoPerfil" CssClass="validacion" runat="server" />
+                 <asp:RegularExpressionValidator ErrorMessage="Solo letras para este campo" ControlToValidate="txtApellidoPerfil" runat="server" CssClass="validacion validator" ValidationExpression="^[a-zA-Z\s]*$" />
             </div>
             <div class="mb-3">
                 <asp:Label ID="labelSeleccionImagenPerfil" CssClass="labels" runat="server" Text="Seleccione imagen de perfil"></asp:Label>

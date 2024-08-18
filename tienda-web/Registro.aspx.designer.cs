@@ -51,6 +51,24 @@ namespace tienda_web
         protected global::System.Web.UI.WebControls.TextBox txtPassRegistro;
 
         /// <summary>
+        /// labelRepetirPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelRepetirPass;
+
+        /// <summary>
+        /// txtRepetirPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRepetirPass;
+
+        /// <summary>
         /// labelNombreRegistro control.
         /// </summary>
         /// <remarks>

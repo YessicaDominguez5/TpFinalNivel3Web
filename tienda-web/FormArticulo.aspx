@@ -15,17 +15,19 @@
 
             <div class="mb-3">
                 <asp:Label ID="labelCodigoArticulo" runat="server" Text="CÓDIGO DE ARTÍCULO" CssClass="labels"></asp:Label>
-                <asp:TextBox ID="txtCodigoArticulo" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCodigoArticulo" MaxLength="20" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ControlToValidate="txtCodigoArticulo" CssClass="validacion" runat="server" />
             </div>
 
             <div class="mb-3">
                 <asp:Label ID="labelNombreArticulo" runat="server" Text="ARTÍCULO" CssClass="labels"></asp:Label>
-                <asp:TextBox ID="txtNombreArticulo" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNombreArticulo" CssClass="form-control" MaxLength="20" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ErrorMessage="Campo requerido" ControlToValidate="txtNombreArticulo" CssClass="validacion" runat="server" />
             </div>
 
             <div class="mb-3">
                 <asp:Label ID="labelDescripcionArticulo" runat="server" Text="DESCRIPCIÓN" CssClass="labels"></asp:Label>
-                <asp:TextBox ID="txtDescripcionArticulo" TextMode="MultiLine" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDescripcionArticulo" TextMode="MultiLine" CssClass="form-control" MaxLength="200" runat="server"></asp:TextBox>
             </div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -42,29 +44,30 @@
             <div class="mb-3">
                 <asp:Label ID="labelPrecioArticulo" runat="server" Text="PRECIO" CssClass="labels"></asp:Label>
                 <asp:TextBox ID="txtPrecioArticulo" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:RegularExpressionValidator ErrorMessage="Solo números" ControlToValidate="txtPrecioArticulo" CssClass="validacion" ValidationExpression="^[0-9]+([,][0-9]+)?$" runat="server" />
             </div>
             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                 <ContentTemplate>
 
 
-            <div class="mb-3">
+                    <div class="mb-3">
 
-                <asp:Button ID="btnAceptarFormulario" OnClick="btnAceptarFormulario_Click" CssClass="btn btn-primary boton" runat="server" Text="ACEPTAR" />
-                <a href="ListaDeArticulos.aspx" class="btn btn-success boton">CANCELAR</a>
-                <%if (Request.QueryString["id"] != null)//si la pantalla es la de modificar que muestre el botón Eliminar
-                  {%>
-                <asp:Button ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger boton" runat="server" Text="ELIMINAR" />
-                <%if (visible)
-                  { %>
-                <div>
+                        <asp:Button ID="btnAceptarFormulario" OnClick="btnAceptarFormulario_Click" CssClass="btn btn-primary boton" runat="server" Text="ACEPTAR" />
+                        <a href="ListaDeArticulos.aspx" class="btn btn-success boton">CANCELAR</a>
+                        <%if (Request.QueryString["id"] != null)//si la pantalla es la de modificar que muestre el botón Eliminar
+                            {%>
+                        <asp:Button ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger boton" runat="server" Text="ELIMINAR" />
+                        <%if (visible)
+                            { %>
+                        <div>
 
-                <asp:CheckBox ID="cBoxConfirmarEliminar" runat="server" />
-                <asp:Label ID="labelCheckBoxConfirmarEliminar" runat="server" Text="¿Está seguro que desea eliminar el artículo?"></asp:Label>
-                <asp:Button ID="btnConfirmarEliminar" OnClick="btnConfirmarEliminar_Click" CssClass="btn btn-danger boton" runat="server" Text="CONFIRMAR ELIMINAR" />
-                </div>
-                <%}
-                  }%>
-            </div>
+                            <asp:CheckBox ID="cBoxConfirmarEliminar" runat="server" />
+                            <asp:Label ID="labelCheckBoxConfirmarEliminar" runat="server" Text="¿Está seguro que desea eliminar el artículo?"></asp:Label>
+                            <asp:Button ID="btnConfirmarEliminar" OnClick="btnConfirmarEliminar_Click" CssClass="btn btn-danger boton" runat="server" Text="CONFIRMAR ELIMINAR" />
+                        </div>
+                        <%}
+                            }%>
+                    </div>
 
                 </ContentTemplate>
             </asp:UpdatePanel>

@@ -16,7 +16,7 @@
     </div>
 
     <%}
-        else if (Session["error"] != null && Session["error"].ToString() == "Debe completar todos los campos para poder registrarse.")
+        else if (Session["error"] != null && (Session["error"].ToString() == "Debe completar todos los campos para poder registrarse." || Session["error"].ToString() == "No coinciden las contraseñas" ))
         { %>
 
     <div>
