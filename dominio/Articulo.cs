@@ -26,6 +26,7 @@ namespace dominio
 
         public decimal PrecioArticulo { get; set; }
 
-        
+      
+
     }
 }

@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using dominio;
 using negocio;
+using tienda_web;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace tienda_web
 {
@@ -15,6 +17,7 @@ namespace tienda_web
         public bool filtroAvanzado { get; set; } = false;
         public bool filtradoAvanzadoConfiguracionDDl { get; set; } = false;
         public bool filtradoAvanzadoVolver { get; set; }
+        public bool meGusta { get; set; } = false;
 
         public List<Articulo> listaDeArticulos {  get; set; }
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +28,12 @@ namespace tienda_web
             {
             listaDeArticulos = negocio.Listar();
 
+                if (!IsPostBack)
+                {
+                    repCards.DataSource = listaDeArticulos;
+                    repCards.DataBind();
+
+                }
             }
             catch (Exception ex)
             {
@@ -142,5 +151,28 @@ namespace tienda_web
                 Response.Redirect("Error.aspx");
             }
         }
+
+        protected void btnFavoritos_Click(object sender, EventArgs e)
+        {
+
+            string id = ((Button)sender).CommandArgument;
+            Button btn = (Button)sender;
+
+            if (btn.Text == "❤️")
+            {
+                btn.Text = "🖤";
+                return;
+            }
+            if (btn.Text == "🖤")
+            {
+                btn.Text = "❤️";
+                return;
+            }
+
+
+        }
     }
 }
+                        
+
+
