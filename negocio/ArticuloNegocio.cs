@@ -56,7 +56,6 @@ namespace negocio
 
             try
             {
-                //datos.SetearConsulta("insert into ARTICULOS(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, ImagenUrl, Precio, Activo) values('" + nuevo.CodigoArticulo + "', '" + nuevo.NombreArticulo + "', '" + nuevo.DescripcionArticulo + "',@IdMarca,@IdCategoria, '" + nuevo.UrlImagenArticulo + "'," + nuevo.PrecioArticulo + "'," + nuevo.Activo + "' ) '");
 
                 datos.SetearConsulta("insert into ARTICULOS (Codigo,Nombre,Descripcion,IdMarca,IdCategoria,ImagenUrl,Precio) VALUES(@Codigo,@Nombre,@Descripcion,@IdMarca,@IdCategoria,@ImagenUrl,@Precio)");
 
@@ -68,8 +67,6 @@ namespace negocio
                 datos.SetearParametros("@ImagenUrl", nuevo.UrlImagenArticulo);
                 datos.SetearParametros("@Precio", nuevo.PrecioArticulo);
                
-
-                //se tiene que ejecutar lectura pero como es un insert no se puede EjecutarLectura() entonces llama a EjecutarAccion();
 
                 datos.EjecutarAccion();
 
@@ -137,6 +134,10 @@ namespace negocio
             {
 
                 throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();  
             }
 
 

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using dominio;
 using negocio;
+using Negocio;
 using tienda_web;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -18,6 +19,8 @@ namespace tienda_web
         public bool filtradoAvanzadoConfiguracionDDl { get; set; } = false;
         public bool filtradoAvanzadoVolver { get; set; }
         public bool meGusta { get; set; } = false;
+        public List<Favorito> favoritos { get; set; } = new List<Favorito>();
+
 
         public List<Articulo> listaDeArticulos {  get; set; }
         protected void Page_Load(object sender, EventArgs e)
@@ -154,20 +157,36 @@ namespace tienda_web
 
         protected void btnFavoritos_Click(object sender, EventArgs e)
         {
+            List<Articulo> aux = new List<Articulo>();
 
+            FavoritosNegocio negocio = new FavoritosNegocio();
+            Favorito articuloFavorito = new Favorito();
+
+            User usuario =(User)Session["usuario"];
+            
             string id = ((Button)sender).CommandArgument;
-            Button btn = (Button)sender;
 
-            if (btn.Text == "❤️")
+            if(Seguridad.SesionActiva(usuario))
             {
-                btn.Text = "🖤";
-                return;
+
+            aux.Add(listaDeArticulos.Find(x => x.Id.ToString().Equals(id)));
+
+                articuloFavorito.IdArticulo = aux[0].Id;
+                articuloFavorito.IdUser = usuario.Id;
+
+                if(!negocio.ExisteFavorito(int.Parse(id),usuario.Id))
+                {
+
+                negocio.AgregarFavorito(articuloFavorito);
+
+                Response.Redirect("Favoritos.aspx", false);
+                }
             }
-            if (btn.Text == "🖤")
+            else
             {
-                btn.Text = "❤️";
-                return;
+                Response.Redirect("Login.aspx");
             }
+
 
 
         }
