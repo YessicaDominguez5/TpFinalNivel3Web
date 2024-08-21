@@ -22,7 +22,7 @@
                                     <h5 class="card-title"><%#Eval("NombreArticulo")%></h5>
                                     <p class="card-text">Tipo: <%#Eval("CategoriaArticulo")%></p>
 
-                                    <asp:Button ID="btnEliminarFavorito" runat="server" Text="🖤" onclick="btnEliminarFavorito_Click" CssClass ="btn bg-gradient" CommandArgument='<%#Eval("Id")%>' />
+                                    <asp:Button ID="btnEliminarFavorito" runat="server" Text="❤️" onclick="btnEliminarFavorito_Click" CssClass ="btn bg-gradient" CommandArgument='<%#Eval("Id")%>' />
 
 
                                     <asp:Label ID="labelFavoritos" runat="server" Text="Eliminar de Favoritos"></asp:Label>

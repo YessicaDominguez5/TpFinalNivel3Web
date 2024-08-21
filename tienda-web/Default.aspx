@@ -90,7 +90,7 @@
             <ContentTemplate>
 
                 <div class="row row-cols-1 row-cols-md-3 g-4 rowDefault">
-                    <asp:Repeater ID="repCards" runat="server">
+                    <asp:Repeater ID="repCards" runat="server" OnItemDataBound="repCards_ItemDataBound">
                         <ItemTemplate>
 
                             <div class="col">
@@ -100,10 +100,10 @@
                                         <h5 class="card-title"><%#Eval("NombreArticulo")%></h5>
                                         <p class="card-text">Tipo: <%#Eval("CategoriaArticulo")%></p>
 
-                                        <asp:Button ID="btnFavoritos" runat="server" Text="🖤" OnClick="btnFavoritos_Click" CssClass="btn bg-gradient" CommandArgument='<%#Eval("Id")%>'/>
+                                        <asp:Button ID="btnFavoritos" runat="server" Text="🖤"  OnClick="btnFavoritos_Click" CssClass="btn bg-gradient" CommandArgument='<%#Eval("Id")%>'/>
 
 
-                                        <asp:Label ID="labelFavoritos" runat="server" Text="Agregar a Favoritos"></asp:Label>
+                                        <asp:Label ID="labelFavoritos" runat="server" Text="Favorito"></asp:Label>
                                     </div>
                                     <a class="btn btn-primary verDetalle" href="Detalle.aspx?id=<%#Eval("Id")%>">Ver Detalle</a>
                                 </div>

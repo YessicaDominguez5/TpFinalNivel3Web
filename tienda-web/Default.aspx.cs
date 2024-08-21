@@ -170,6 +170,8 @@ namespace tienda_web
             FavoritosNegocio negocio = new FavoritosNegocio();
             Favorito articuloFavorito = new Favorito();
             ArticuloNegocio negocioArticulos = new ArticuloNegocio();
+            Button btn = (Button)sender;
+
 
             User usuario = (User)Session["usuario"];
 
@@ -193,14 +195,52 @@ namespace tienda_web
 
                     Response.Redirect("Favoritos.aspx", false);
                 }
+                else
+                {
+                    negocio.EliminarDeFavoritos(int.Parse(id), usuario.Id);
+
+                    Response.Redirect("Favoritos.aspx", false);
+
+                }
+
             }
             else
             {
+
                 Response.Redirect("Login.aspx");
             }
 
 
 
+        }
+
+        protected void repCards_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            FavoritosNegocio negocio = new FavoritosNegocio();
+            User user = (User)Session["usuario"];
+
+            if(Seguridad.SesionActiva(user))
+            {
+
+            if (e.Item.ItemType == ListItemType.Item ||
+                e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Button button = e.Item.FindControl("btnFavoritos") as Button; // Obtengo el boton buscandolo por ID
+                Articulo articulo = (Articulo)e.Item.DataItem; // Obtengo el boton buscandolo por ID
+
+                if (!negocio.ExisteFavorito(articulo.Id, user.Id))
+                {
+                    button.Text = "🖤";
+
+                }
+                else
+                {
+                    button.Text = "❤️";
+                }
+
+
+            }
+            }
         }
     }
 }
