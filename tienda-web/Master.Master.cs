@@ -17,7 +17,7 @@ namespace tienda_web
 
 
             //si no es la pagina de Login o Registro o Error o Default y no hay una sesion activa que lo redireccione al login
-            if (!(Page is Login || Page is Registro || Page is Error || Page is Default))
+            if (!(Page is Login || Page is Registro || Page is Error || Page is Default || Page is Detalle))
             {
                 if (!Seguridad.SesionActiva(sessionActiva))
                 {

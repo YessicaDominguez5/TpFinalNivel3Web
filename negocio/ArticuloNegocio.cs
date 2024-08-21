@@ -158,12 +158,12 @@ namespace negocio
 
                         switch (criterio)
                         {
-                            case "Comienza con...":
+                            case "comienza con":
                                 consulta += "A.Nombre like '" + filtro + "%'";
 
                                 break;
 
-                            case "Termina con...":
+                            case "termina con":
 
                                 consulta += "A.Nombre like '%" + filtro + "'";
 
@@ -182,12 +182,12 @@ namespace negocio
 
                         switch (criterio)
                         {
-                            case "Comienza con...":
+                            case "comienza con":
                                 consulta += "M.Descripcion like '" + filtro + "%'";
 
                                 break;
 
-                            case "Termina con...":
+                            case "termina con":
 
                                 consulta += "M.Descripcion like '%" + filtro + "'";
 
@@ -206,12 +206,12 @@ namespace negocio
 
                         switch (criterio)
                         {
-                            case "Mayor a...":
+                            case "mayor a":
                                 consulta += "A.Precio >" + filtro;
 
                                 break;
 
-                            case "Menor a...":
+                            case "menor a":
 
                                 consulta += "A.Precio <" + filtro;
 

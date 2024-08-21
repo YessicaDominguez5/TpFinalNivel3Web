@@ -22,17 +22,17 @@ namespace tienda_web
         public List<Favorito> favoritos { get; set; } = new List<Favorito>();
 
 
-        public List<Articulo> listaDeArticulos {  get; set; }
+        public List<Articulo> listaDeArticulos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-            listaDeArticulos = negocio.Listar();
 
                 if (!IsPostBack)
                 {
+                    listaDeArticulos = negocio.Listar();
                     repCards.DataSource = listaDeArticulos;
                     repCards.DataBind();
 
@@ -43,42 +43,47 @@ namespace tienda_web
                 Session.Add("error", ex);
                 Response.Redirect("Error.aspx");
             }
-            
-     
+
+
         }
 
         protected void txtFiltroRapido_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> aux = new List<Articulo>();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            listaDeArticulos = negocio.Listar();
 
             aux.AddRange(listaDeArticulos.FindAll(x => x.NombreArticulo.ToUpper().Contains(txtFiltroRapido.Text.ToUpper())));
 
             //addRange agrega una lista a aux
-           
-                listaDeArticulos = aux;
 
-            if(listaDeArticulos.Count == 0)
+            // Actualizo el repeteater y bindeo la información filtrada.
+            repCards.DataSource = aux;
+            repCards.DataBind();
+
+            if (listaDeArticulos.Count == 0)
             {
                 labelSinFiltros.Text = "No se encontraron artículos";
             }
 
             filtrado = true;
-           
+
 
         }
 
         protected void cBoxFiltroAvanzado_CheckedChanged(object sender, EventArgs e)
         {
             filtradoAvanzadoConfiguracionDDl = true;
-           
+
             filtroAvanzado = cBoxFiltroAvanzado.Checked;//se le asigna a filtro avanzado si el checkBox está en true o false
 
             //txtFiltroRapido.Enable = false; filtro desactivado
             //si el checkBox de filtro avanzado está activado, desactivo el filtro rápido. Lo contrario a filtroAvanzado.
 
             txtFiltroRapido.Enabled = !filtroAvanzado;
-            
-            if(!txtFiltroRapido.Enabled)
+
+            if (!txtFiltroRapido.Enabled)
             {
                 txtFiltroRapido.Text = "";
                 labelSinFiltros.Text = "";
@@ -101,20 +106,20 @@ namespace tienda_web
             try
             {
 
-            if(ddlCampo.SelectedItem.ToString() == "Precio")
-            {
-                ddlCriterio.Items.Add("igual a");
-                ddlCriterio.Items.Add("menor a");
-                ddlCriterio.Items.Add("mayor a");
+                if (ddlCampo.SelectedItem.ToString() == "Precio")
+                {
+                    ddlCriterio.Items.Add("igual a");
+                    ddlCriterio.Items.Add("menor a");
+                    ddlCriterio.Items.Add("mayor a");
 
-            }
-            else
-            {
-                ddlCriterio.Items.Add("contiene");
-                ddlCriterio.Items.Add("comienza con");
-                ddlCriterio.Items.Add("termina con");
+                }
+                else
+                {
+                    ddlCriterio.Items.Add("contiene");
+                    ddlCriterio.Items.Add("comienza con");
+                    ddlCriterio.Items.Add("termina con");
 
-            }
+                }
 
             }
             catch (Exception ex)
@@ -139,12 +144,15 @@ namespace tienda_web
                 }
                 else
                 {
+
                     labelSinFiltrosAvanzados.Text = "";
                 }
+                repCards.DataSource = listaDeArticulos;
+                repCards.DataBind();
 
                 filtrado = false;
                 filtradoAvanzadoVolver = true;
-              
+
 
             }
             catch (Exception ex)
@@ -161,25 +169,29 @@ namespace tienda_web
 
             FavoritosNegocio negocio = new FavoritosNegocio();
             Favorito articuloFavorito = new Favorito();
+            ArticuloNegocio negocioArticulos = new ArticuloNegocio();
 
-            User usuario =(User)Session["usuario"];
-            
+            User usuario = (User)Session["usuario"];
+
             string id = ((Button)sender).CommandArgument;
 
-            if(Seguridad.SesionActiva(usuario))
+            listaDeArticulos = negocioArticulos.Listar();
+
+
+            if (Seguridad.SesionActiva(usuario))
             {
 
-            aux.Add(listaDeArticulos.Find(x => x.Id.ToString().Equals(id)));
+                aux.Add(listaDeArticulos.Find(x => x.Id.ToString().Equals(id)));
 
                 articuloFavorito.IdArticulo = aux[0].Id;
                 articuloFavorito.IdUser = usuario.Id;
 
-                if(!negocio.ExisteFavorito(int.Parse(id),usuario.Id))
+                if (!negocio.ExisteFavorito(int.Parse(id), usuario.Id))
                 {
 
-                negocio.AgregarFavorito(articuloFavorito);
+                    negocio.AgregarFavorito(articuloFavorito);
 
-                Response.Redirect("Favoritos.aspx", false);
+                    Response.Redirect("Favoritos.aspx", false);
                 }
             }
             else
@@ -192,6 +204,6 @@ namespace tienda_web
         }
     }
 }
-                        
+
 
 
