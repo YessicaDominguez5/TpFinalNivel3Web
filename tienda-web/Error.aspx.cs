@@ -17,5 +17,10 @@ namespace tienda_web
 
             }
         }
+
+        protected void btnErrorVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

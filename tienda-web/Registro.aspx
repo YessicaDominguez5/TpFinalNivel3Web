@@ -7,6 +7,8 @@
 
 
     <h2 class="mb-3 login">Ingrese los datos para registrarse</h2>
+    <asp:Panel ID="panelRegistro" DefaultButton="btnRegistrarse" runat="server"> <%--para que ingrese con el enter--%>
+
     <div class="mb-3 login">
         <div class="inputs">
             <asp:Label ID="labelEmailRegistro" CssClass="labels" runat="server" Text="Email"></asp:Label>
@@ -41,5 +43,6 @@
                 CssClass="btn btn-primary btnLogin" runat="server" Text="Registrarse" />
         </div>
     </div>
+    </asp:Panel>
 
 </asp:Content>

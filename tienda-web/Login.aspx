@@ -7,12 +7,15 @@
 
 
     <div class="mb-3 login">
+            <asp:Panel ID="panel1" runat="server" DefaultButton="btnIngresarLogin">
 
         <div>
+
             <asp:Label ID="labelUser" CssClass="labels" runat="server" Text="User"></asp:Label>
             <asp:TextBox ID="txtUser" CssClass="form-control" runat="server"></asp:TextBox>
             <asp:RegularExpressionValidator ErrorMessage="Formato incorrecto" CssClass="validacion" ControlToValidate="txtUser" ValidationExpression="^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" runat="server" />
         </div>
+        
         <div class="rowForm">
             <asp:Label ID="labelPass" CssClass="labels" runat="server" Text="Pass"></asp:Label>
             <asp:TextBox ID="txtPass" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
@@ -25,6 +28,7 @@
         </div>
 
 
+            </asp:Panel>
     </div>
 
 </asp:Content>

@@ -5,33 +5,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h1>Error</h1>
+    
 
-    <asp:Label ID="labelError" runat="server" Text=""></asp:Label>
+        <asp:Label ID="labelError" runat="server" Text=""></asp:Label>
 
-    <%if (Session["error"] != null && Session["error"].ToString() == "User o Pass incorrectos.")
-        { %>
-    <div>
-        <a href="Login.aspx" class="btn btn-primary inputs">VOLVER</a>
+        <%if (Session["error"] != null && Session["error"].ToString() == "User o Pass incorrectos.")
+            { %>
+        <div>
+            <a href="Login.aspx" class="btn btn-primary inputs">VOLVER</a>
 
-    </div>
+        </div>
 
-    <%}
-        else if (Session["error"] != null && (Session["error"].ToString() == "Debe completar todos los campos para poder registrarse." || Session["error"].ToString() == "No coinciden las contraseñas" ))
-        { %>
+        <%}
+            else if (Session["error"] != null && (Session["error"].ToString() == "Debe completar todos los campos para poder registrarse." || Session["error"].ToString() == "No coinciden las contraseñas"))
+            { %>
 
-    <div>
-        <a href="Registro.aspx" class="btn btn-primary inputs">VOLVER</a>
+        <div>
+            <a href="Registro.aspx" class="btn btn-primary inputs">VOLVER</a>
 
-    </div>
+        </div>
 
-    <%}
-        else
-        {%>
+        <%}
+            else
+            {%>
 
-    <div>
-        <a href="Default.aspx" class="btn btn-primary inputs">VOLVER</a>
+        <div>
+            <asp:Button ID="btnErrorVolver" OnClick="btnErrorVolver_Click" class="btn btn-primary inputs" runat="server" Text="Volver" />
 
-    </div>
+        </div>
 
-    <%}%>
+        <%}%>
+     
+  
 </asp:Content>

@@ -8,6 +8,8 @@
     <div class="row rowForm">
         <div class="col-6">
 
+            <asp:Panel ID="panelFormArticulo" DefaultButton="btnAceptarFormulario" runat="server">
+
             <div class="mb-3">
                 <asp:Label ID="labelId" runat="server" Text="ID" CssClass="labels"></asp:Label>
                 <asp:TextBox ID="txtIdArticulo" CssClass="form-control" runat="server"></asp:TextBox>
@@ -71,6 +73,7 @@
 
                 </ContentTemplate>
             </asp:UpdatePanel>
+            </asp:Panel>
         </div>
 
         <div class="col-6 imgSelects">

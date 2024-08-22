@@ -32,7 +32,8 @@ namespace tienda_web
 
                 Session.Add("error", "Debe completar todos los campos para poder registrarse.");
                 Response.Redirect("Error.aspx", false);
-            }else if(pass != repitePass)
+            }
+            else if (pass != repitePass)
             {
                 Session.Add("error", "No coinciden las contraseñas");
                 Response.Redirect("Error.aspx", false);
@@ -40,27 +41,37 @@ namespace tienda_web
             }
             else
             {
+                UserNegocio Negocio = new UserNegocio();
                 try
                 {
-                    usuario.Usuario = mail;
-                    usuario.Pass = pass;
-                    usuario.Nombre = nombre;
-                    usuario.Apellido = apellido;
-
-
-                    usuario.Id = negocio.InsertarNuevoRegistro(usuario);
-                    //Le mando el usuario con los datos cargados del registro, lo guarda en la base de datos y me devuelve el id del registro guardado.
-
-                    if(usuario.Id != 0)
+                    if (!negocio.ExisteMail(mail))
                     {
-                    Session.Add("usuario", usuario);
-                    Response.Redirect("Default.aspx", false);
+                        usuario.Usuario = mail;
+                        usuario.Pass = pass;
+                        usuario.Nombre = nombre;
+                        usuario.Apellido = apellido;
 
+
+                        usuario.Id = negocio.InsertarNuevoRegistro(usuario);
+                        //Le mando el usuario con los datos cargados del registro, lo guarda en la base de datos y me devuelve el id del registro guardado.
+
+                        if (usuario.Id != 0)
+                        {
+                            Session.Add("usuario", usuario);
+                            Response.Redirect("Default.aspx", false);
+
+                        }
+                        else
+                        {
+                            Session.Add("error", "Debe completar todos los campos para poder registrarse.");
+                            Response.Redirect("Error.aspx");
+                        }
                     }
                     else
                     {
-                        Session.Add("error", "Debe completar todos los campos para poder registrarse.");
-                        Response.Redirect("Error.aspx");
+                        Session.Add("error", "Ya existe una cuenta registrada con ese mail");
+                        Response.Redirect("Error.aspx", false);
+
                     }
 
                 }

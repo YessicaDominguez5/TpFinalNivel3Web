@@ -151,6 +151,35 @@ namespace Negocio
 				datos.CerrarConexion();
 			}
 		}
+		public bool ExisteMail(string mail)
+		{
+			AccesoADatos datos = new AccesoADatos();
+			List<string> lista = new List<string>();
+
+			string query = "select email from USERS where email = @mail";
+			datos.SetearConsulta(query);
+			datos.SetearParametros("@mail",mail);
+
+			datos.EjecutarLectura();
+			
+			while(datos.Lector.Read())
+			{
+				string emailEnDB = (string)datos.Lector["email"];
+
+				lista.Add(emailEnDB);
+
+			}
+
+			if(lista.Count > 0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			
+		}
 
     }
 }

@@ -12,6 +12,7 @@
     <div class="row rowForm">
 
         <div class="col-6 sinArticulos">
+            <asp:Panel ID="panelPerfil" DefaultButton="btnAceptarPerfil" runat="server">
 
             <div class="mb-3">
                 <asp:Label ID="labelEmailPerfil" CssClass="labels" runat="server" Text="Email"></asp:Label>
@@ -38,6 +39,7 @@
             <div>
                 <asp:Button ID="btnAceptarPerfil" OnClick="btnAceptarPerfil_Click" CssClass="btn btn-primary inputs" runat="server" Text="GUARDAR" />
             </div>
+            </asp:Panel>
         </div>
         <div class="col">
 
