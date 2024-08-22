@@ -8,6 +8,7 @@ using dominio;
 using System.Data.SqlClient;
 using accesoAdatos;
 using System.Net;
+using static System.Net.WebRequestMethods;
 
 namespace negocio
 {
@@ -53,6 +54,7 @@ namespace negocio
         public void agregar(Articulo nuevo) //recibe el artículo que se manda dentro del evento Aceptar_Click desde el formulario AgregarModificar
         {
             AccesoADatos datos = new AccesoADatos();
+            string sinImagen = "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg";
 
             try
             {
@@ -64,7 +66,16 @@ namespace negocio
                 datos.SetearParametros("@Descripcion", nuevo.DescripcionArticulo);
                 datos.SetearParametros("@IdMarca", nuevo.MarcaArticulo.IdMarca);
                 datos.SetearParametros("@IdCategoria", nuevo.CategoriaArticulo.IdCategoria);
+
+                if(!string.IsNullOrEmpty(nuevo.UrlImagenArticulo))
+                {
                 datos.SetearParametros("@ImagenUrl", nuevo.UrlImagenArticulo);
+
+                }
+                else
+                {
+                    datos.SetearParametros("@ImagenUrl", sinImagen);
+                }
                 datos.SetearParametros("@Precio", nuevo.PrecioArticulo);
                
 
@@ -264,6 +275,7 @@ namespace negocio
 
 
                 }
+               
                 aux.PrecioArticulo = (decimal)datos.Lector["Precio"];
 
                 lista.Add(aux);

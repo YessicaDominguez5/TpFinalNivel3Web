@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using dominio;
 
 namespace tienda_web
 {
@@ -11,11 +13,33 @@ namespace tienda_web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["error"] != null)
+            User user = (User)Session["usuario"];
+            
+            if(Seguridad.SesionActiva(user))
             {
-                labelError.Text = Session["error"].ToString();
+                if(Session["error"] != null)
+                {
+                    labelError.Text = Session["error"].ToString();
+                   
+                }
+                else
+                {
+                    Response.Redirect("Default.aspx", false);
+                }
+            }
+            else
+            {
+                if(Session["error"] != null)
+                {
+                    labelError.Text = Session["error"].ToString();
+                }
+                else 
+                {
+                    Response.Redirect("Login.aspx", false);
+                }
 
             }
+            
         }
 
         protected void btnErrorVolver_Click(object sender, EventArgs e)
@@ -24,3 +48,4 @@ namespace tienda_web
         }
     }
 }
+

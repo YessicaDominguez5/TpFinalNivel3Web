@@ -21,7 +21,7 @@ namespace dominio
 
         public Categoria CategoriaArticulo { get; set; }
 
-        public string UrlImagenArticulo { get; set; }
+        public string UrlImagenArticulo { get; set; } 
 
 
         public decimal PrecioArticulo { get; set; }

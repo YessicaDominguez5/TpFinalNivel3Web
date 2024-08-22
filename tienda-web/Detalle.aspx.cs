@@ -28,9 +28,13 @@ namespace tienda_web
                 labelDescripcionDetalle.Text = "Descripción: " + seleccionado.DescripcionArticulo;
                 labelMarcaDetalle.Text = "Marca: " + seleccionado.MarcaArticulo.DescripcionMarca;
                 labelCategoriaDetalle.Text = "Categoría: " + seleccionado.CategoriaArticulo.DescripcionCategoria;
-                labelPrecioDetalle.Text = "Precio: " + seleccionado.PrecioArticulo.ToString();
+                labelPrecioDetalle.Text = "Precio: $" + seleccionado.PrecioArticulo.ToString("0.00");
 
             
+            }
+            else
+            {
+                Response.Redirect("Default.aspx");
             }
         }
     }

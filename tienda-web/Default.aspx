@@ -95,6 +95,7 @@
 
                             <div class="col">
                                 <div class="card">
+     
                                     <img src="<%#Eval("UrlImagenArticulo")%>" class="card-img-top imgCard" alt="<%#Eval("NombreArticulo")%>">
                                     <div class="card-body">
                                         <h5 class="card-title"><%#Eval("NombreArticulo")%></h5>
