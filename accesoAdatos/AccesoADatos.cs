@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace accesoAdatos
 {
@@ -23,7 +20,10 @@ namespace accesoAdatos
 
         public AccesoADatos()
         {
-            conexion = new SqlConnection("server =.\\SQLEXPRESS; database = CATALOGO_WEB_DB; integrated security = true");
+            conexion = new SqlConnection(ConfigurationManager.AppSettings["cadenaConexion"]);
+
+            //conexion = new SqlConnection("server =.\\SQLEXPRESS; database = CATALOGO_WEB_DB; integrated security = true");
+
             comando = new SqlCommand();
 
         }

@@ -11,6 +11,7 @@ namespace tienda_web
 {
     public partial class Master : System.Web.UI.MasterPage
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             User sessionActiva = (User)Session["usuario"];
@@ -63,5 +64,33 @@ namespace tienda_web
             //Session.Remove("trainee"); borra solo el objeto trainee
             Response.Redirect("Login.aspx");
         }
+        protected bool SessionAdmin()
+        {
+            User user = (User)Session["usuario"];
+
+            if(Seguridad.SesionActiva(user))
+            {
+                if(Seguridad.EsAdmin(user))
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+            }
+            else
+            {
+                return false;
+            }
+
+
+        }
+
+        
+      
     }
 }

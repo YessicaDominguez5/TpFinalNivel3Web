@@ -62,9 +62,13 @@
                     <li class="nav-item">
                         <a class="nav-link links" href="Favoritos.aspx">Favoritos</a>
                     </li>
+                <%if (SessionAdmin())
+                    { %>
                     <li class="nav-item">
                         <a class="nav-link links" href="ListaDeArticulos.aspx">Listado de Artículos</a>
                     </li>
+                    <%}%>
+                   
                 </ul>
             </div>
         </header>
